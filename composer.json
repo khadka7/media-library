@@ -1,0 +1,12 @@
+{
+    "name": "khadka7/media-library",
+    "description": "Simple Media Library",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Sanjay Khadka",
+            "email": "khadka.sk7@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
