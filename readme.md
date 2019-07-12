@@ -10,7 +10,12 @@ This simple media library.
    ```  \Khadka7\MediaLibrary\MediaServiceProvider::class, ``` 
 - after this migrate your database
 - your routes will be auto added.
+
     
 ## Requirements
 - [Image Intervention](http://image.intervention.io/).
  
+## Version
+
+- version - 1.0
+  
