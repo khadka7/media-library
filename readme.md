@@ -8,7 +8,7 @@ This simple media library.
 - ```composer require khadka7/media-library```
 - Add this to service provider
    ```  \Khadka7\MediaLibrary\MediaServiceProvider::class, ``` 
-- after this migrate your datbase
+- after this migrate your database
 - your routes will be auto added.
     
 ## Requirements
