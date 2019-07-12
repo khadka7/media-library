@@ -8,5 +8,17 @@
             "email": "khadka.sk7@gmail.com"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Khadka7\\MediaLibrary\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Khadka7\\MediaLibrary\\MediaServiceProvider"
+            ]
+        }
+    }
 }
