@@ -65,9 +65,9 @@ class MediaService
         for ($i = 0; $i < $fileCount; $i++) {
             if ($file[$i] instanceof UploadedFile) {
                 $publicDir = 'public/media/file/';
-                $storageDir = 'storage/media/file/';
+                $storageDir = '/storage/media/file/';
                 $thumbnailDir = 'public/media/thumbnail/';
-                $storageThumbnailDir = 'storage/media/thumbnail/';
+                $storageThumbnailDir = '/storage/media/thumbnail/';
                 $fileOrginalName = $file[$i]->getClientOriginalName();
                 $fileName = pathinfo($fileOrginalName, PATHINFO_FILENAME);
                 $fileType = $file[$i]->getClientMimeType();

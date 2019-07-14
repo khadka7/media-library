@@ -44,23 +44,4 @@
         });
     });
 
-    function imageInfo(uuid) {
-        var url = "{{route('media.info','UUID')}}";
-        url = url.replace('UUID', uuid);
-        $.ajax({
-            url: url,
-            method: 'GET',
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function (data) {
-                $('#modal-url').val(data.data.url).attr('readonly', 'readonly');
-                $('#modal-filename').val(data.data.filename);
-                var thumb_url = data.data.thumbnail_url;
-                var source = "{{asset('URL')}}";
-                source = source.replace('URL',thumb_url);
-                $('.image-status').attr('src', source);
-            }
-        });
-    }
 </script>

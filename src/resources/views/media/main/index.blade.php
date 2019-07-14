@@ -84,25 +84,6 @@
         }
 
 
-        function detailImage(uuid) {
-            var url="{{route('media.detail','UUID')}}";
-            url = url.replace('UUID',uuid);
-            let modal = $('#myModal');
-            $.ajax({
-                url:url,
-                method:'GET',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success:function (data) {
-                    console.log(data);
-                    modal.find('.modal-title').html('Image Detail');
-                    modal.find('.modal-body').html(data.template);
-                    modal.modal('toggle');
-                    modal.find(".modal-dialog").css('width', '1100px');
-                }
-            });
-        }
 
     </script>
 @endsection

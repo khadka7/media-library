@@ -40,20 +40,7 @@
 </div>
 
 <script>
-    $("#searchFile").on('keyup', function () {
-        var name = $(this).val();
-        var url = "{{route('media.search')}}";
-        $.ajax({
-            url: url,
-            method: 'GET',
-            data: {filename: name},
-            dataType: 'json',
-            success: function (data) {
-                $("#media").html(data.data.template);
-            }
-        })
 
-    });
     Dropzone.autoDiscover = false;
     $("#media-dropzone").dropzone({
         url: "{{route('media.create')}}",
@@ -79,41 +66,20 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function (data) {
-                        filterTemplate();
+                        modalGrid();
                         tabReload();
                     }
                 });
             });
         },
         success: function () {
-            filterTemplate();
+            modalGrid();
             tabReload();
         }
     });
 
-
-    function tabReload() {
-        setTimeout(function () {
-            $('#upload-tab').removeClass('active')
-            $("#gallery-tab").addClass('active')
-        }, 4000);
-    }
-
-    function filterTemplate() {
-        var url = "{{route('media.modal.grid')}}";
-        $.ajax({
-            url: url,
-            method: 'GET',
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function (data) {
-                $("#gallery").html(data.data.template);
-            }
-        });
-    }
-
     $(document).ready(function () {
-        filterTemplate();
+        modalGrid();
     });
+
 </script>

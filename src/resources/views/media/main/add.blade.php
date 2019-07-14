@@ -10,7 +10,7 @@
             </div>
             <hr>
             <div class="panel-body">
-                <form enctype="multipart/form-data" class="dropzone" id="media-dropzone">
+                <form enctype="multipart/form-data" class="dropzone" id="custom-media-dropzone">
                     {{ csrf_field() }}
                     <div class="dz-message">
                         <div class="col-xs-8">
@@ -28,4 +28,34 @@
         </div>
     </div>
 
+@endsection
+
+@section('script')
+    <script>
+        Dropzone.autoDiscover = false;
+        $("#custom-media-dropzone").dropzone({
+            url: "{{route('media.create')}}",
+            method: 'post',
+            uploadMultiple: true,
+            paramName: 'file',
+            parallelUploads: 15,
+            maxFilesize: 16,
+            addRemoveLinks: true,
+            // dictRemoveFile: '<i class="fa fa-2x fa-trash"></i>',
+            dictRemoveFile: 'Remove File',
+            dictFileTooBig: 'Image is larger than 2MB',
+            init: function () {
+                this.on("sending", function (file, xhr, formData) {
+                    formData.append('uuid[]', file.upload.uuid);
+                });
+                this.on("removedfile", function (file) {
+                    deleteImage(file.upload.uuid);
+                });
+            },
+            success: function (data) {
+                console.log('deleted');
+            }
+        });
+
+    </script>
 @endsection
