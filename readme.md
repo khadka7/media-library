@@ -4,6 +4,12 @@
 ## Basic Desciption
 This simple media library. 
 
+
+## Requirements
+- [Image Intervention](http://image.intervention.io/).
+- Be sure to add storage link ```php artisan storage:link```
+- Need Dropzone js.
+
 ## Installation
 - ```composer require khadka7/media-library```
 - Add this to service provider
@@ -11,11 +17,28 @@ This simple media library.
 - after this migrate your database
 - Your routes will be auto added.
 - Use vendor publish for dropzone js and css ```php artisan vendor:publish --tag=media-library-assets```
-    
-## Requirements
-- [Image Intervention](http://image.intervention.io/).
-- Be sure to add storage link ```php artisan storage:link```
- 
+- Add these scripts to your master balde.
+    ```
+    <link rel="stylesheet" href="{{asset('vendor/media-library/css/dropzone.css')}}">
+    <script src="{{asset('vendor/media-library/js/main.js')}}"></script>
+    <script src="{{asset('vendor/media-library/js/dropzone.js')}}"></script>
+    ```
+- Add modal with modal Id - mediaModal in your blade file. 
+  ```
+  <div id="mediaModal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title"></h4>
+              </div>
+              <div class="modal-body"></div>
+              <div class="modal-footer">
+              </div>
+          </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  ```              
 ## Version
 
 - version - 1.0 (beta)

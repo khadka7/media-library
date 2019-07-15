@@ -20,4 +20,4 @@
 </div>
 </body>
 @include('media-library::includes.footer')
-</html>
+</html>openMedia

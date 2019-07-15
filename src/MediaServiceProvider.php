@@ -19,9 +19,9 @@ class MediaServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/resources/assets' => public_path('vendor/media-library'),
         ], 'media-library-assets');
-//        $this->publishes([
-//            __DIR__.'/resources/views/media/main' => resource_path('views/vendor/media-library'),
-//        ], 'media-library-views');
+        $this->publishes([
+            __DIR__.'/resources/views/media/main' => resource_path('views/vendor/media-library'),
+        ], 'media-library-views');
     }
 
     /**
