@@ -17,7 +17,8 @@
                     <th>S.N</th>
                     <th>Thumbnail</th>
                     <th>Filename</th>
-                    <th>Filesize</th>
+                    <th>Url</th>
+                    <th>Thumbnail Url</th>
                     <th>ACtion</th>
                 </tr>
                 </thead>
@@ -30,7 +31,8 @@
                             <img src="{{asset($media->thumbnail_url)}}" alt="">
                         </td>
                         <td>{{$media->filename}}</td>
-                        <td>{{$media->filesize}}</td>
+                        <td>{{$media->url}}</td>
+                        <td>{{$media->thumbnail_url}}</td>
                         <td>
                             <a href="#" onclick="detailImage('{{$media->uuid}}')">View</a>
                             <a href="#" onclick="removeImage('{{$media->uuid}}')">Delete</a>

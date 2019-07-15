@@ -17,7 +17,6 @@
 
 Route::group(['namespace'=>'Khadka7\MediaLibrary\Http\Controllers'], function () {
     Route::get('/medias/list','MediaController@index')->name('medias.list');
-
     Route::post('/media/create','MediaController@create')->name('media.create');
     Route::get('/media/add','MediaController@add')->name('media.add');
     Route::get('/media/{uuid}/delete','MediaController@delete')->name('media.delete');

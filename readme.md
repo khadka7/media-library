@@ -39,6 +39,14 @@ This simple media library.
       </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
   ```              
+## Usage
+- Use this input to append your media url
+```
+<input type="text" onclick="openMedia()"">
+```
+- Go to /medias/list routes for media list
+- You can add media from /media/add too.  
+  
 ## Version
 
 - version - 1.0 (beta)

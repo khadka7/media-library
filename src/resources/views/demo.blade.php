@@ -16,8 +16,9 @@
         <div class="box-body">
             <input type="text" placeholder="Upload Image" onclick="openMedia()" id="url">
         </div>
+{{--        <a href="">Open Media</a>--}}
     </div>
 </div>
 </body>
 @include('media-library::includes.footer')
-</html>openMedia
+</html>
