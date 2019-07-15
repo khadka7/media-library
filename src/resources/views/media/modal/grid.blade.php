@@ -13,6 +13,7 @@
                     <div class="form-group">
                         <label for="url">Url:</label>
                         <input name="url" type="text" class="form-control" id="modal-url">
+                        <input type="hidden" id="modal-thumbnail-url">
                     </div>
                     <div class="form-group">
                         <label for="filename">Filename</label>

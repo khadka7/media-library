@@ -13,10 +13,12 @@
 @include('media-library::includes.modal')
 <div class="col-xs-12">
     <div class="box">
-        <div class="box-body">
+        <div class="media">
+            <div id="selected-image">
+                <img src="" alt="" class="media-image1 img-thumbnail">
+            </div>
             <input type="text" placeholder="Upload Image" onclick="openMedia()" id="url">
         </div>
-{{--        <a href="">Open Media</a>--}}
     </div>
 </div>
 </body>
