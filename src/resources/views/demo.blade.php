@@ -14,11 +14,11 @@
 <div class="col-xs-12">
     <div class="box">
         <div class="media">
-            <div id="selected-image">
-                <img src="" alt="" class="media-image-thumb img-thumbnail">
-            </div>
-            <input type="text" placeholder="Upload Image" onclick="openMedia()" id="url">
+            <img src="" alt="" class="img-thumbnail img-url">
+            <input type="text" placeholder="Upload Image" onclick="openMedia(this)" id="url">
         </div>
+
+
     </div>
 </div>
 </body>

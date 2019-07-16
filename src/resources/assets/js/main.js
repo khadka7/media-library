@@ -36,14 +36,18 @@ function deleteImage(a) {
     }
 }
 
-function openMedia() {
+function openMedia(obj) {
+    console.log(obj);
     let a = $("#mediaModal");
     $.ajax({
         url: openModalUrl,
         method: "GET",
         headers: {accept: "application/json", "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")},
         success: function (e) {
-            a.find(".modal-title").html("Insert Image"), a.find(".modal-body").html(e.template), a.find(".modal-footer").html('<button class="btn btn-primary" onclick="insertUrl(event)" ">Insert Image</button>'), a.modal("toggle"), a.find(".modal-dialog").css("width", "1100px")
+            a.find(".modal-title").html("Insert Image"),
+                a.find(".modal-body").html(e.template),
+                a.find(".modal-footer").html('<button class="btn btn-primary" onclick="insertUrl(event)" ">Insert Image</button>'),
+                a.modal("toggle"), a.find(".modal-dialog").css("width", "1100px")
         },
         error: function (a) {
             console.log(a.responseText)
