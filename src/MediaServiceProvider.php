@@ -17,11 +17,14 @@ class MediaServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
         $this->loadViewsFrom(__DIR__.'/resources/views','media-library');
         $this->publishes([
+            __DIR__.'/database/migrations' => database_path('migrations')
+        ], 'media-library-migrations');
+        $this->publishes([
             __DIR__.'/resources/assets' => public_path('vendor/media-library'),
         ], 'media-library-assets');
-        $this->publishes([
-            __DIR__.'/resources/views/media/main' => resource_path('views/vendor/media-library'),
-        ], 'media-library-views');
+//        $this->publishes([
+//            __DIR__.'/resources/views/media/main' => resource_path('views/vendor/media-library'),
+//        ], 'media-library-views');
     }
 
     /**
