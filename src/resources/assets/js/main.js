@@ -7,7 +7,7 @@ function tabReload() {
 }
 
 function detailImage(a) {
-    detailImageUrl = detailImageUrl.replace('ID',a);
+    detailImageUrl = detailImageUrl.replace('ID', a);
     let t = $("#mediaModal");
     $.ajax({
         url: detailImageUrl,
@@ -21,7 +21,7 @@ function detailImage(a) {
 
 function deleteImage(a) {
     if (!0 === confirm("Do you want to delete this image")) {
-        deleteImageUrl = deleteImageUrl.replace('ID',a);
+        deleteImageUrl = deleteImageUrl.replace('ID', a);
         $.ajax({
             url: deleteImageUrl,
             method: "GET",
@@ -33,18 +33,14 @@ function deleteImage(a) {
     }
 }
 
-function openMedia(obj) {
-    console.log(obj);
-    let a = $("#mediaModal");
+function openMedia(a) {
+    let e = $("#mediaModal"), t = a.id;
     $.ajax({
         url: openModalUrl,
         method: "GET",
         headers: {accept: "application/json", "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")},
-        success: function (e) {
-            a.find(".modal-title").html("Insert Image"),
-                a.find(".modal-body").html(e.template),
-                a.find(".modal-footer").html('<button class="btn btn-primary" onclick="insertUrl(event)" ">Insert Image</button>'),
-                a.modal("toggle"), a.find(".modal-dialog").css("width", "1100px")
+        success: function (a) {
+            console.log("d", a), e.find(".modal-title").html("Insert Image"), e.find(".modal-body").html(a.template), e.find(".modal-footer").html('<button class="btn btn-primary" onclick="insertUrl(' + t + ')">Insert Image</button>'), e.modal("toggle"), e.find(".modal-dialog").css("width", "1100px")
         },
         error: function (a) {
             console.log(a.responseText)
@@ -53,13 +49,15 @@ function openMedia(obj) {
 }
 
 function insertUrl(a) {
-    a.preventDefault();
+    console.log('this',a);
+    event.preventDefault(), id = a.id;
     var e = $("#mediaModal"),
         t = $("#modal-url").val(),
-        l = $("#modal-thumbnail-url").val();
-    console.log(l);
-    src = host + l,
-        $(".media-image-thumb").attr("src", src), $("#url").val(t), e.modal("toggle")
+        o = $("#modal-thumbnail-url").val();
+    src = host + o,
+        console.log(src);
+    $(".img-" + id).attr("src", src),
+        $("#" + id).val(t), e.modal("toggle");
 }
 
 function modalGrid() {
@@ -74,7 +72,7 @@ function modalGrid() {
 }
 
 function imageInfo(a) {
-    imageInfoUrl = imageInfoUrl.replace('ID',a);
+    imageInfoUrl = imageInfoUrl.replace('ID', a);
     $.ajax({
         url: imageInfoUrl,
         method: "GET",
@@ -95,3 +93,5 @@ $("#searchFile").on("keyup", function () {
         }
     })
 });
+
+

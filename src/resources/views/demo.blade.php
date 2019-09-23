@@ -17,8 +17,6 @@
             <img src="" alt="" class="img-thumbnail img-url">
             <input type="text" placeholder="Upload Image" onclick="openMedia(this)" id="url">
         </div>
-
-
     </div>
 </div>
 </body>
