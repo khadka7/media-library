@@ -4,11 +4,14 @@
 namespace Khadka7\MediaLibrary;
 
 
+use Illuminate\Support\Facades\Route;
+
 class MediaRoutes
 {
-
     public static function routes(){
-        Route::group(['namespace'=>'Khadka7\MediaLibrary\Http\Controllers'], function () {
+        $namespace = '\\Khadka7\\MediaLibrary\\Http\\Controllers\\';
+
+        Route::group(['namespace'=>$namespace], function () {
             Route::get('/medias/list','MediaController@index')->name('medias.list');
             Route::post('/media/create','MediaController@create')->name('media.create');
             Route::get('/media/add','MediaController@add')->name('media.add');
