@@ -23,7 +23,6 @@ Route::group(['namespace'=>'Khadka7\MediaLibrary\Http\Controllers'], function ()
     Route::get('/media/{uuid}/detail','MediaController@detail')->name('media.detail');
     Route::get('/media/{uuid}/info','MediaController@info')->name('media.info');
     Route::post('/media/{uuid}/update','MediaController@update')->name('media.update');
-
     Route::get('/ajax/medias','MediaController@media')->name('ajax.medias.list');
     Route::get('/ajax/medias/modal/gird-view','MediaController@gridView')->name('media.modal.grid');
     Route::get('/ajax/open-modal','MediaController@openModal')->name('media.modal.open');
