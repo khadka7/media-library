@@ -1,3 +1,4 @@
+var host = location.origin;
 
 function tabReload() {
     setTimeout(function () {
@@ -19,18 +20,17 @@ function detailImage(a) {
 }
 
 function deleteImage(a) {
-    // if (!0 === confirm("Do you want to delete this image")) {
-    deleteImageUrl = deleteImageUrl.replace('ID',a);
-    console.log(deleteImageUrl);
-    // $.ajax({
-    //     url: deleteImageUrl,
-    //     method: "GET",
-    //     headers: {"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")},
-    //     success: function (a) {
-    //         console.log("deleted")
-    //     }
-    // })
-    // }
+    if (!0 === confirm("Do you want to delete this image")) {
+        deleteImageUrl = deleteImageUrl.replace('ID',a);
+        $.ajax({
+            url: deleteImageUrl,
+            method: "GET",
+            headers: {"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")},
+            success: function (a) {
+                console.log("deleted")
+            }
+        })
+    }
 }
 
 function openMedia(obj) {
@@ -54,8 +54,12 @@ function openMedia(obj) {
 
 function insertUrl(a) {
     a.preventDefault();
-    var e = $("#mediaModal"), t = $("#modal-url").val(), l = $("#modal-thumbnail-url").val();
-    src = host + l, $(".media-image-thumb").attr("src", src), $("#url").val(t), e.modal("toggle")
+    var e = $("#mediaModal"),
+        t = $("#modal-url").val(),
+        l = $("#modal-thumbnail-url").val();
+    console.log(l);
+    src = host + l,
+        $(".media-image-thumb").attr("src", src), $("#url").val(t), e.modal("toggle")
 }
 
 function modalGrid() {
@@ -70,9 +74,9 @@ function modalGrid() {
 }
 
 function imageInfo(a) {
-    var e = host + "/media/" + a + "/info";
+    imageInfoUrl = imageInfoUrl.replace('ID',a);
     $.ajax({
-        url: e,
+        url: imageInfoUrl,
         method: "GET",
         headers: {"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")},
         success: function (a) {
