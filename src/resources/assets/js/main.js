@@ -1,7 +1,3 @@
-var host = location.origin, mediaCreateUrl = host + "/media/create", mediaListUrl = host + "/medias/list",
-    mediaAddUrl = host + "/media/add", ajaxMediaListUrl = host + "/ajax/medias",
-    modalGridViewUrl = host + "/ajax/medias/modal/gird-view", openModalUrl = host + "/ajax/open-modal",
-    searchMediaUrl = host + "/ajax/media/search";
 
 function tabReload() {
     setTimeout(function () {
@@ -10,10 +6,10 @@ function tabReload() {
 }
 
 function detailImage(a) {
-    var e = host + "/media/" + a + "/detail";
+    detailImageUrl = detailImageUrl.replace('ID',a);
     let t = $("#mediaModal");
     $.ajax({
-        url: e,
+        url: detailImageUrl,
         method: "GET",
         headers: {"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")},
         success: function (a) {
@@ -23,17 +19,18 @@ function detailImage(a) {
 }
 
 function deleteImage(a) {
-    if (!0 === confirm("Do you want to delete this image")) {
-        var e = host + "/media/" + a + "/delete";
-        e = e.replace("UUID", a), $.ajax({
-            url: e,
-            method: "GET",
-            headers: {"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")},
-            success: function (a) {
-                console.log("deleted")
-            }
-        })
-    }
+    // if (!0 === confirm("Do you want to delete this image")) {
+    deleteImageUrl = deleteImageUrl.replace('ID',a);
+    console.log(deleteImageUrl);
+    // $.ajax({
+    //     url: deleteImageUrl,
+    //     method: "GET",
+    //     headers: {"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")},
+    //     success: function (a) {
+    //         console.log("deleted")
+    //     }
+    // })
+    // }
 }
 
 function openMedia(obj) {

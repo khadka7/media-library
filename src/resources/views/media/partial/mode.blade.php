@@ -6,7 +6,6 @@
                 <img class="img-thumbnail" src="{{asset($media->thumbnail_url)}}" alt="" \
                      onclick="detailImage('{{$media->uuid}}')">
             @endforeach
-
         </div>
 
     @else

@@ -13,6 +13,7 @@
                 </div>
                 <div class="col-md-5">
                     <form method="post" onsubmit="updateImage(this)">
+                        @csrf
                         <div id="message">
                             <div id="message-content"></div>
                         </div>
@@ -71,9 +72,6 @@
             data: formData,
             processData: false,
             contentType: false,
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
             success: function (data) {
                 $('#message-content').html(data.message).addClass('alert alert-success');
                 $('#message-content').fadeOut(3000, function() {
