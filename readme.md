@@ -15,13 +15,28 @@ This simple media library.
 - Add this to service provider
    ```  Khadka7\MediaLibrary\MediaServiceProvider::class, ``` 
 - after this migrate your database
-- Your routes will be auto added.
+- Add routes to web.php
+  ```
+    MediaRoutes::routes();
+   ```
 - Use vendor publish for dropzone js and css ```php artisan vendor:publish --tag=media-library-assets```
 - Add these scripts to your master balde.
     ```
     <link rel="stylesheet" href="{{asset('vendor/media-library/css/dropzone.css')}}">
     <script src="{{asset('vendor/media-library/js/main.js')}}"></script>
     <script src="{{asset('vendor/media-library/js/dropzone.js')}}"></script>
+    <script type="text/javascript">
+       let mediaCreateUrl = "{{route('media.create')}}";
+       let mediaListUrl = "{{route('medias.list')}}";
+       let ajaxMediaListUrl = "{{route('ajax.medias.list')}}";
+       let modalGridViewUrl = "{{route('media.modal.grid')}}";
+       let openModalUrl = "{{route('media.modal.open')}}";
+       let searchMediaUrl = "{{route('media.search')}}";
+       let detailImageUrl = "{{route('media.detail','ID')}}";
+       let deleteImageUrl = "{{route('media.delete','ID')}}";
+       let imageInfoUrl = "{{route('media.info','ID')}}"
+       let updateUrl = "{{route('media.update','ID')}}";
+    </script>
     ```
 - Add modal with modal Id - mediaModal in your blade file. 
   ```
