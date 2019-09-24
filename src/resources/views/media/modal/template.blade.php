@@ -27,8 +27,9 @@
                     <form action="" id="mediaSearch">
                         <div class="col-md-3">
                             <input type="text" name="filename" placeholder="Search media...." class="form-control"
-                                   id="searchFile">
+                                   id="searchFile" >
                         </div>
+
                     </form>
                 </div>
             </div>
@@ -41,6 +42,15 @@
 
 <script>
 
+$("#searchFile").on("keyup", function () {
+    var a = $(this).val();
+    var searchMediaUrl = "{{route('media.search')}}";
+    $.ajax({
+        url: searchMediaUrl, method: "GET", data: {filename: a}, dataType: "json", success: function (a) {
+            $("#media").html(a.data.template)
+        }
+    })
+});
     Dropzone.autoDiscover = false;
     $("#media-dropzone").dropzone({
         url: "{{route('media.create')}}",

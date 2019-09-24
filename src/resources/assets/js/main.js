@@ -85,13 +85,5 @@ function imageInfo(a) {
     })
 }
 
-$("#searchFile").on("keyup", function () {
-    var a = $(this).val(), e = searchMediaUrl;
-    $.ajax({
-        url: e, method: "GET", data: {filename: a}, dataType: "json", success: function (a) {
-            $("#media").html(a.data.template)
-        }
-    })
-});
 
 
