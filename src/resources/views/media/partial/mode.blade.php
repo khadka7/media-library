@@ -3,8 +3,8 @@
         <h2>Images Thumbnail</h2>
         <div id="grid-mode">
             @foreach ($medias as $media)
-                <img class="img-thumbnail" src="{{asset($media->thumbnail_url)}}" alt="" \
-                     onclick="detailImage('{{$media->uuid}}')">
+                <img class="img-thumbnail" src="{{asset($media->thumbnail_url)}}" alt=""
+                     onclick="detailImage('{{$media->uuid}}')" style="margin: 3px;cursor: pointer">
             @endforeach
         </div>
 

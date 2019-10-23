@@ -72,9 +72,9 @@ function modalGrid() {
 }
 
 function imageInfo(a) {
-    imageInfoUrl = imageInfoUrl.replace('ID', a);
+    newImageInfoUrl = imageInfoUrl.replace('ID',a);
     $.ajax({
-        url: imageInfoUrl,
+        url: newImageInfoUrl,
         method: "GET",
         headers: {"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")},
         success: function (a) {
@@ -84,6 +84,5 @@ function imageInfo(a) {
         }
     })
 }
-
 
 
